@@ -1,0 +1,23 @@
+contoh struktur data file = request.files["image"].read() // contoh gambar format jpg
+b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x01\x00H\x00H\x00\x00\xff\xe1\x00"Exif\x00\x00MM\x00*'
+  
+
+
+contoh struktur data img = cv2.imdecode(np.frombuffer(file, np.uint8), cv2.IMREAD_COLOR)
+[
+  [[255, 0, 0], [0, 255, 0], [0, 0, 255]],  # Baris 1: Piksel Biru, Hijau, Merah
+  [[0, 0, 0], , [128, 128, 128]], # Baris 2: Piksel Hitam, Putih, Abu-abu
+  [[255, 255, 0], [0, 255, 255], [255, 0, 255]]  # Baris 3: Campuran warna lain
+]
+
+
+
+contoh stuktur data faces = face_app.get(img)
+[
+  {
+    'bbox': array([120.4, 85.1, 310.2, 420.5], dtype=float32),
+    'kps': array([[160.2, 210.1], [250.4, 208.3], ...], dtype=float32),
+    'det_score': 0.98765,
+    'embedding': array([ 0.012, -0.045,  0.128, ..., -0.091], dtype=float32)
+  }
+]
